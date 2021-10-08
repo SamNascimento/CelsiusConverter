@@ -1,11 +1,13 @@
 import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class Converter extends JFrame {
     private JPanel mainPanel;
     private JTextField celsiusTextField;
     private JLabel celsiusLabel;
     private JButton convertButton;
-    private JLabel farhenheitLabel;
+    private JLabel fahrenheitLabel;
 
     public Converter(String titulo) {
         super(titulo);
@@ -16,6 +18,16 @@ public class Converter extends JFrame {
         this.setContentPane(mainPanel);
         // Empacotando o conteúdo a ser exibido
         this.pack();
+
+        // Criando uma ação para ser executada quando o programa "ouvir"/detectar uma ação no botão
+        convertButton.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                // A ação feita será pegar o valor do TextField e passar convertido para a Label do Fahrenheit
+                int tempFahr = (int) ((Double.parseDouble(celsiusTextField.getText())) * 1.8 + 32);
+                fahrenheitLabel.setText(tempFahr + "º Fahrenheit");
+            }
+        });
     }
 
     public static void main(String[] args) {
