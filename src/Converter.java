@@ -2,6 +2,10 @@ import javax.swing.*;
 
 public class Converter extends JFrame {
     private JPanel mainPanel;
+    private JTextField celsiusTextField;
+    private JLabel celsiusLabel;
+    private JButton convertButton;
+    private JLabel farhenheitLabel;
 
     public Converter(String titulo) {
         super(titulo);
@@ -20,5 +24,7 @@ public class Converter extends JFrame {
 
         // Definindo o Frame para deixá-lo visível
         frame.setVisible(true);
+
+
     }
 }
